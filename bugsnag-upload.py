@@ -15,7 +15,7 @@ from rich.table import Table
 
 console = Console()
 
-CONFIG_PATH = Path.home() / ".config" / "bugsnag-upload" / "projects.json"
+CONFIG_PATH = Path.home() / ".config" / "bugsnag-dsym-sync" / "projects.json"
 ARCHIVES_DIR = Path.home() / "Library" / "Developer" / "Xcode" / "Archives"
 
 

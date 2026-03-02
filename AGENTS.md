@@ -1,18 +1,18 @@
-# bugsnag-upload
+# bugsnag-dsym-sync
 
-Interactive TUI wrapper for `bugsnag-dsym-upload`. Discovers Xcode archives in a configurable date window, tracks upload history locally, and supports syncing all projects at once.
+Interactive TUI wrapper around [`bugsnag-dsym-upload`](https://docs.bugsnag.com/build-integrations/dsym/) (the official Bugsnag CLI, a required dependency). Discovers Xcode archives in a configurable date window, tracks upload history locally, and supports syncing all projects at once.
 
 ## Location
 
 ```
-/Users/dennis/dev/take-agency/bugsnag-upload/
-├── bugsnag-upload.py   # Main script
+/Users/dennis/dev/take-agency/bugsnag-dsym-sync/
+├── bugsnag-dsym-sync.py   # Main script
 ├── requirements.txt    # questionary>=2.0, rich>=13.0
 ├── run.sh              # Launcher — auto-creates venv on first run
 └── AGENTS.md           # This file
 ```
 
-**Config file:** `~/.config/bugsnag-upload/projects.json`
+**Config file:** `~/.config/bugsnag-dsym-sync/projects.json`
 
 ## Running
 

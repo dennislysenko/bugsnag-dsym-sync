@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 set -e
 
-REPO="https://github.com/dennislysenko/bugsnag-upload.git"
-INSTALL_DIR="$HOME/.local/share/bugsnag-upload"
-BIN_LINK="/usr/local/bin/bugsnag-upload"
+REPO="https://github.com/dennislysenko/bugsnag-dsym-sync.git"
+INSTALL_DIR="$HOME/.local/share/bugsnag-dsym-sync"
+BIN_LINK="/usr/local/bin/bugsnag-dsym-sync"
 
 # Clone or update
 if [ -d "$INSTALL_DIR/.git" ]; then
-    echo "Updating bugsnag-upload..."
+    echo "Updating bugsnag-dsym-sync..."
     git -C "$INSTALL_DIR" pull --ff-only
 else
-    echo "Installing bugsnag-upload..."
+    echo "Installing bugsnag-dsym-sync..."
     git clone "$REPO" "$INSTALL_DIR"
 fi
 
@@ -28,5 +28,12 @@ fi
 ln -s "$INSTALL_DIR/run.sh" "$BIN_LINK"
 chmod +x "$INSTALL_DIR/run.sh"
 
+# Check for bugsnag-dsym-upload dependency
+if ! command -v bugsnag-dsym-upload &>/dev/null; then
+    echo ""
+    echo "⚠ bugsnag-dsym-upload not found on PATH (required for uploads)."
+    echo "  Install it with: gem install bugsnag-dsym-upload"
+fi
+
 echo ""
-echo "✓ Installed! Run: bugsnag-upload"
+echo "✓ Installed! Run: bugsnag-dsym-sync"
