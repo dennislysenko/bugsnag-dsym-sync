@@ -13,19 +13,17 @@ Stop hunting for Xcode archives and copy-pasting API keys. `bugsnag-upload` is a
 ## Setup
 
 ```bash
-git clone <this repo>
-cd bugsnag-upload
-./run.sh
+curl -fsSL https://raw.githubusercontent.com/dennislysenko/bugsnag-upload/main/install.sh | bash
 ```
 
-That's it. The first run creates a virtual environment and installs dependencies automatically.
+This clones the repo to `~/.local/share/bugsnag-upload`, sets up a virtual environment, and symlinks `bugsnag-upload` into `/usr/local/bin`. To update later, just run the same command again.
 
 ## Usage
 
 ```bash
-./run.sh           # interactive menu, 7-day window
-./run.sh -d 30     # look back 30 days
-./run.sh -s 2026-02-01 -e 2026-02-28   # explicit date range
+bugsnag-upload           # interactive menu, 7-day window
+bugsnag-upload -d 30     # look back 30 days
+bugsnag-upload -s 2026-02-01 -e 2026-02-28   # explicit date range
 ```
 
 On first launch, go to **Manage projects → Add project** to save your Bugsnag project API keys. Find keys at [app.bugsnag.com/settings](https://app.bugsnag.com/settings/) → Projects (left sidebar) → click your project.
